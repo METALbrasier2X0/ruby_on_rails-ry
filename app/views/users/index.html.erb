@@ -1,0 +1,50 @@
+<htmL>
+    <head>
+        <title>Ruby</title>
+        <meta charset="utf-8"/>
+        <style>
+
+        </style>
+    </head>
+    <body>
+        <h1>Liste des utilisateurs</h1>
+        <a class="btn btn-primary" href="<%= new_user_path() %>">Créer un nouvel utilisateur</a>
+        <a class="btn btn-primary" href="<%= new_user_session_path() %>">Connexion</a>
+        <a rel="nofollow" data-method="delete" class="btn btn-secondary" href="<%= destroy_user_session_path() %>">Déconnexion</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Prénom</td>
+                    <td>Nom</td>
+                    <td>Date de naissance</td>
+                    <td>Liens</td>
+                </tr>
+            </thead>
+            <tbody>
+                <% @users.each do |user| %>
+                    <tr>
+                        <th scope="col">
+                            <%= user.first_name %>
+                        </th> 
+                        <th scope="col">
+                            <%= user.last_name %>
+                        </th>
+                        <th scope="col">
+                            <%= user.birth_date %>
+                        </th>
+                        <th scope="col">
+                            <a class="btn btn-primary" href="<%= user_path(user) %>">Visionner</a> 
+                            <a class="btn btn-primary" href="<%= edit_user_path(user) %>">Modifier</a>
+                            <%= link_to "Supprimer" , user, {
+                                method: :delete, data:{
+                                    confirm: "Voulez-vous vraiment supprimer cet utilisateur ?"
+                                }
+                            } 
+                            %>
+                        </th>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+<htmL>
+    <head>
+        <title>Photos</title>
+        <meta charset="utf-8"/>
+        <style>
+            img{
+                animation: yolo 0.2s infinite;
+            }
+
+            @keyframes yolo{
+                0%{
+                    transform:rotate(0deg);
+                }
+                50%{
+                    transform:rotate(180deg);
+                }
+                100%{
+                    transform:rotate(360deg);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Liste des photos</h1>
+        <% @photos.each do |photo| %>
+           <h2><%= photo.title %></h2>
+           <img src="<%= photo.image.thumb %>" alt="<%= photo.title %>"/>
+           <img src="<%= photo.image %>" alt="<%= photo.title %>"/>
+        <% end %>
+    </body>
+</html>

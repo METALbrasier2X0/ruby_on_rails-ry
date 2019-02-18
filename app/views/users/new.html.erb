@@ -1,0 +1,34 @@
+<style>
+    .field_with_errors > input{
+        border-color:red;
+    }
+    input {
+        display:block;
+    }
+    ul{
+        margin:0;
+        color:red; 
+    }
+</style>
+
+<%= form_for(@user) do |f| %>
+<ul>
+    <% @user.errors[:first_name].each do |erreur| %>
+        <li><%= erreur %></li>
+    <% end %>
+</ul>
+<%= f.text_field :first_name %>
+<ul>
+    <% @user.errors[:last_name].each do |erreur| %>
+        <li><%= erreur %></li>
+    <% end %>
+</ul>
+<%= f.text_field :last_name %>
+<ul>
+    <% @user.errors[:birth_date].each do |erreur| %>
+        <li><%= erreur %></li>
+    <% end %>
+</ul>
+<%= f.date_field :birth_date %>
+<%= f.submit %>
+<% end %>
