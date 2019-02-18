@@ -1,0 +1,16 @@
+<div class="listusers">
+    <h1 class ="title"> Create new post </h1>
+    <%= form_for [@user,@post] do |f| %>
+       <div class="row12"> <%= f.label("Title") %>
+        <%= f.text_field :title %> <p><% if @post.errors[:title]
+        %> <%= @post.errors[:title]%> <% end %>
+        </p></div>
+        <div class="row12"><%= f.label("Body") %>
+        <%= f.text_field :body %> <p> <% if @user.errors[:body]
+        %> <%= @user.errors[:body]%> <% end %> </p> </div>
+
+        <div class="row12"><%= f.label("Image URL") %>
+        <%= f.file_field:image %> 
+
+        <%= f.submit("Save") %>
+    <% end %>

@@ -1,0 +1,12 @@
+
+<h1>Editer</h1>
+<%= form_for([@user,@post]) do |f|%>
+<%= f.label("Title") %><br/>
+<%= f.text_field :title %><br/>
+<%= f.label("Body") %><br/>
+<%= f.text_field :body %><br/>
+<%= f.label("Image URL") %><br/>
+<%= f.file_field :image %><br/>
+<%= f.submit("update") %>
+
+<% end %>

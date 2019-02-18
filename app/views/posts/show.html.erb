@@ -1,0 +1,18 @@
+
+<h1 class="title " > <%= @post.title %> </h1>
+<h5 class = "creator">Creator : <%= @creator.first_name %> <%= @creator.last_name %> </h5>
+<% if @post.image? %> <img src="<%= @post.image %> " alt="<%= @post.title %>"/> 
+<% end %>
+<div class="d-flex flex-column">
+    <div class="row12 listusers"> 
+    <p> <%= @post.title %> </p>
+    <p> <%= @post.body %> </p> </div>
+</div>
+<%= link_to "/"  do %>
+    <button class="btn btn-primary" type ="button" value = "Photos"> Home </button>
+<%end%>
+<%= link_to ["edit",@user, @post] do %><button class= "btn btn-primary" type="button">edit</button><% end %> 
+
+<%= link_to [@user,@post] ,{method: :delete,data:{confirm: "Are you sur?"}} do %> <button class= "btn btn-primary" type="button"> Delete </button> <% end %> 
+
+<%= commontator_thread(@post) %>

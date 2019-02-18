@@ -1,7 +1,9 @@
-<%= form_for(@user) do |f| %>
-<%= f.text_field :first_name %>
-<%= f.text_field :last_name %>
-<%= f.date_field :birth_date %>
-<%= f.photo :photos %>
-<%= f.submit %>
+<h1>Editer</h1>
+<%= form_for(@user) do |f|%>
+<%= f.label("Prenom") %><br/>
+<%= f.text_field :first_name %><br/>
+<%= f.label("Nom") %><br/>
+<%= f.text_field :last_name %><br/>
+<%= f.submit("update") %>
+
 <% end %>

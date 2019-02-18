@@ -1,0 +1,27 @@
+<div class="listusers">
+    <h1 class ="title"> Create new user </h1>
+    <%= form_for (@user) do |f| %>
+       <div class="row12"> <%= f.label("FirstName") %>
+        <%= f.text_field :first_name %> <p><% if @user.errors[:first_name]
+        %> <%= @user.errors[:first_name]%> <% end %>
+        </p></div>
+        <div class="row12"><%= f.label("LastName") %>
+        <%= f.text_field :last_name %> <p> <% if @user.errors[:last_name]
+        %> <%= @user.errors[:last_name]%> <% end %> </p> </div>
+
+        <div class="row12"><%= f.label("Email") %>
+        <%= f.email_field :email %> <p> <% if @user.errors[:email]
+        %> <%= @user.errors[:email]%> <% end %></p> </div>
+
+        <div class="row12"><%= f.label("Password") %>
+        <% if @minimum_password_length %> <em>(<%= @minimum_password_length %> characters minimum)</em><% end %>
+        <%= f.password_field :password %> <p> <% if @user.errors[:password]
+        %> <%= @user.errors[:password]%> <% end %></p> </div>
+
+        <div class="row12"><%= f.label("Password") %>
+        <%= f.password_field :password_confirmation %> <p> <% if @user.errors[:password_confirmation]
+        %> <%= @user.errors[:password_confirmation]%> <% end %></p> </div>
+
+        <%= f.submit("Update") %>
+    <% end %>
+</div>
